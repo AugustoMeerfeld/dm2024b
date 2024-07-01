@@ -150,7 +150,19 @@ AgregarVariables_IntraMes <- function(dataset) {
   }
 
   #### Variables manuales Augusto ###
-  # Relacionadas a dtos en compras
+  ## Relacionadas a dtos en compras
+
+  #Hago totales sobre los dtos 
+  dataset[, vmr_dto_monto := rowSums(cbind(mtarjeta_visa_descuentos, mtarjeta_master_descuentos), na.rm = TRUE)]
+  dataset[, vmr_dto_cantidad := rowSums(cbind(ctarjeta_visa_descuentos, ctarjeta_master_descuentos), na.rm = TRUE)]
+  dataset[, ttl_dto_cantidad := rowSums(cbind(vmr_dto_cantidad, ccajeros_propios_descuentos), na.rm = TRUE)]
+  dataset[, ttl_dto_monto := rowSums(cbind(vmr_dto_monto, mcajeros_propios_descuentos), na.rm = TRUE)]
+
+  #Veo el dto promedio que está percibiendo el usuario
+  dataset[, debito_dto_prom := mcajeros_propios_descuentos / ccajeros_propios_descuentos]
+  dataset[, v_credito_dto_prom := mtarjeta_visa_descuentos / ctarjeta_visa_descuentos]
+  dataset[, mr_credito_dto_prom := mtarjeta_master_descuentos / ctarjeta_master_descuentos]
+  
 
   # Relacionadas a cercanía con sucursales
 
