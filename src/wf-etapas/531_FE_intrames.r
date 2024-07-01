@@ -149,6 +149,41 @@ AgregarVariables_IntraMes <- function(dataset) {
     dataset[mapply(is.nan, dataset)] <<- 0
   }
 
+  #### Variables manuales Augusto ###
+  # Relacionadas a dtos en compras
+
+  # Relacionadas a cercanía con sucursales
+
+  # Relacionadas a los costos
+
+  # Relacionada a la rentabilidad/Margenes del banco
+
+  # Cantidad de productos utilizados y antiguedad
+
+  # Relacionado al límite del cliente
+
+  # Cuando le dieron el último cartón
+
+  # Última vez que se dió de alta
+
+  # Sintomas de que está operando con otro banco
+
+  # Tiempo con otro banco
+
+  # Relacionadas al grado de modernindad del cliente
+
+  # Tipo de usuario según que canal usa más
+
+  
+
+
+  
+
+
+
+
+
+  
   cat( "fin AgregarVariables_IntraMes()\n")
 }
 #------------------------------------------------------------------------------
